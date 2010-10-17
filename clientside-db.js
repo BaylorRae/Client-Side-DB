@@ -11,15 +11,10 @@ ClientSideDB.prototype = {
     fields = '(' + fields.join(',') + ')';
     var self = this;
 
-    this.db.transaction(function(tx) {
-
-      // See if we can get rows from the table
-      // else, create table
-      
-      this.query('SELECT * FROM ' + name, [], function() {}, function(tx) {
-        this.query('CREATE TABLE ' + name + ' ' + fields, []);
-      });
-
+    // See if we can get rows from the table
+    // else, create table
+    this.query('SELECT * FROM ' + name, [], function() {}, function(tx) {
+      tx.executeSql('CREATE TABLE ' + name + ' ' + fields, []);
     });
   },
   

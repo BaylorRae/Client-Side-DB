@@ -66,7 +66,7 @@ Client Side DB is a wrapper for the [Web SQL Database](http://dev.w3.org/html5/w
 		 * @param Success function (optional)
 		 * @param Error function (optional)
 		*/
-		db.query('DROP TABLE ?', ['users'], function() {
+		db.query('DROP TABLE users', [], function() {
 			alert('Dropped the table users');
 		});
 	}
