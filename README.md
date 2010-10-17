@@ -1,5 +1,5 @@
 ## Client Side DB
-Client Side DB is a wrapper for the [Web SQL Database](http://dev.w3.org/html5/webdatabase/) that makes it easy to, make a database, create a table, insert rows, get rows, and run queries.
+Client Side DB is a wrapper for the [Web SQL Database](http://dev.w3.org/html5/webdatabase/) that makes it easy to add a database, create a table, insert rows, get rows, and run queries.
 
 ### The Basics
 
