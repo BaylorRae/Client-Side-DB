@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Client Side DB</title>
+<meta charset="utf-8" />
+
+</head>
+<body>
+  
+  <ol id="users"></ol>
+    
+  <script src="clientside-db.js"></script>
+  <script>
+            
+    var db = new ClientSideDB('test', 1.0, 'My Test Database');
+    
+    if( db.isAvailable ) {
+            
+      db.createTable('users', ['id INTEGER PRIMARY KEY AUTOINCREMENT', 'name', 'email']);
+      
+      // db.insert('users', {
+      //   'name': 'JD',
+      //   'email': 'jd@example.com'
+      // });
+      
+      var users = document.querySelector('#users'), li = null;
+      db.get('users', ['name'], function(tx, results) {
+        
+        var row;
+        for( var i = 0, len = results.rows.length; i < len; i++ ) {
+          row = results.rows.item(i);
+          
+          li = document.createElement('li');
+          li.innerHTML = row.name;
+          
+          users.appendChild(li);
+        }
+        
+      });
+    }
+        
+  </script>
+</body>
+</html>
