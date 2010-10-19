@@ -38,6 +38,27 @@ Client Side DB is a wrapper for the [Web SQL Database](http://dev.w3.org/html5/w
 		});
 		
 		/**
+		 * Update row. Set the name to "Baylor Rae'"
+		 * Where the id = 1 and name = 'Baylor'
+		 *
+		 * @param Table (required)
+		 * @param Values (required)(object)
+		 * @param Where (required)(object)
+		 * @param Success function (optional)
+		 * @param Error function (optional)
+		*/
+		db.update('users', {
+			// What to update
+			name: "Baylor Rae'"
+		}, {
+			// Where to update it
+			id: 1,
+			name: 'Baylor'
+		}, function() {
+			alert('User #1 has been updated');
+		});
+		
+		/**
 		 * Get rows from the database
 		 *
 		 * @param Table (required)

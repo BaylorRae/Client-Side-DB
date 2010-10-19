@@ -18,10 +18,17 @@
             
       db.createTable('users', ['id INTEGER PRIMARY KEY AUTOINCREMENT', 'name', 'email']);
       
-      // db.insert('users', {
-      //   'name': 'JD',
-      //   'email': 'jd@example.com'
-      // });
+      db.insert('users', {
+        'name': 'Baylor',
+        'email': 'baylor@example.com'
+      });
+      
+      db.update('users', {
+        'name': "Baylor Rae'"
+      }, {
+        id: 1,
+        'name': 'Baylor'
+      });
       
       var users = document.querySelector('#users'), li = null;
       db.get('users', ['name'], function(tx, results) {
@@ -35,8 +42,9 @@
           
           users.appendChild(li);
         }
-        
+                
       });
+      
     }
         
   </script>
